@@ -1,9 +1,8 @@
 using System;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Processing;
 
 namespace Lab_6_OOP
 {
@@ -22,14 +21,14 @@ namespace Lab_6_OOP
 
                 try
                 {
-                    using (Bitmap bitmap = new Bitmap(file))
+                    using (Image image = Image.Load(file))
                     {
-                        bitmap.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                        image.Mutate(x => x.Flip(FlipMode.Horizontal));
 
                         string nameOnly = Path.GetFileNameWithoutExtension(fileName);
                         string newName = Path.Combine(dir, nameOnly + "-mirrored.gif");
 
-                        bitmap.Save(newName, ImageFormat.Gif);
+                        image.SaveAsGif(newName);
                         Console.WriteLine($"Файл оброблено: {fileName} -> {Path.GetFileName(newName)}");
                     }
                 }
