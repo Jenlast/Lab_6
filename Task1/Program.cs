@@ -22,11 +22,11 @@ namespace Lab_6_OOP
                     switch (choice)
                     {
                         case "1":
-                            //Task1.Execute();
+                            Task1.Execute();
                             Console.WriteLine("Task 1 executed.");
                             break;
                         case "2":
-                            //Task2.Execute();
+                            Task2.Execute();
                             Console.WriteLine("Task 2 executed.");
                             break;
                         case "0":
