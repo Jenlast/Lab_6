@@ -1,0 +1,19 @@
+## --- Visual Studio ---
+## Ігноруємо результати збірки (exe, dll, pdb)
+[Bb]in/
+[Oo]bj/
+
+## Тимчасові файли Visual Studio та кеш
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+## --- Додатково ---
+## Якщо ви використовуєте VS Code
+.vscode/
+
+## Файли операційної системи
+Thumbs.db
+.DS_Store
