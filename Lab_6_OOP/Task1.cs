@@ -8,7 +8,7 @@ namespace Lab_6_OOP
     {
         public static void Execute()
         {
-            long sum = 0;
+            int sum = 0;
             int count = 0;
 
             using StreamWriter noFile = new StreamWriter("no_file.txt", false);
@@ -35,7 +35,7 @@ namespace Lab_6_OOP
                 {
                     noFile.WriteLine(fileName);
                 }
-                catch (FormatException)
+                catch (Exception ex) when (ex is FormatException || ex is IndexOutOfRangeException)
                 {
                     badData.WriteLine(fileName);
                 }

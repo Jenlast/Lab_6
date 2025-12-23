@@ -23,7 +23,7 @@ namespace Lab_6_OOP
                 {
                     using (Image image = Image.Load(file))
                     {
-                        image.Mutate(x => x.Flip(FlipMode.Horizontal));
+                        image.Mutate(x => x.Flip(FlipMode.Vertical));
 
                         string nameOnly = Path.GetFileNameWithoutExtension(fileName);
                         string newName = Path.Combine(dir, nameOnly + "-mirrored.gif");
