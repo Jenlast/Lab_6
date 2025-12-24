@@ -15,7 +15,7 @@ namespace Lab_6_OOP
                 Console.WriteLine("2 - Обробка графічних файлів (Завдання 2)");
                 Console.WriteLine("0 - Вихід");
 
-                string choice = Console.ReadLine();
+                string? choice = Console.ReadLine();
 
                 try
                 {

@@ -17,15 +17,25 @@ namespace Lab_6_OOP
 
             foreach (int i in Enumerable.Range(10, 20))
             {
+                int value1 = 0;
+                int value2 = 0;
                 string fileName = $"{i}.txt";
                 try
                 {
                     string[] lines = File.ReadAllLines(fileName);
 
-                    int value1 = int.Parse(lines[0].Trim().Split()[0]);
-                    int value2 = int.Parse(lines[1].Trim().Split()[0]);
+                    try
+                    {
+                        value1 = int.Parse(lines[0].Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries)[0]);
+                        value2 = int.Parse(lines[1].Trim().Split(new[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries)[0]);
+                    }
+                    catch (OverflowException)
+                    {
+                        badData.WriteLine(fileName);
+                        continue;
+                    }
 
-                    int product = value1 * value2;
+                    int product = checked(value1 * value2);
 
                     sum += product;
                     count++;
